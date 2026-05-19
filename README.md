@@ -26,13 +26,14 @@ A GPU is recommended for reproducing neural ranker experiments. CPU is sufficien
 
 ```text
 Data/
+  known_exploited_vulnerabilities.csv
   build_events_kev.py
   build_full_nvd_corpus.py
   build_snapshots_weekly_kev_forecast.py
   enrich_snapshots_with_epss.py
-  enrich_snapshots_with_temporal_advisories.py
+  enrich_snapshots_with_ghsa_osv.py
   enrich_snapshots_with_public_exploits.py
-  ablate_nvd_text.py
+  ablations/ablate_nvd_text.py
   ablations/make_no_epss_ablation.py
 
 experiments/
@@ -145,6 +146,7 @@ python experiments/evaluate_early_warning_baselines_all.py \
   --score_scope relevant_cutoffs \
   --k_values 10,20,50,100 \
   --seed 7 \
+  --random_seeds 1,2,3,4,5 \
   --out_dir <path-to-early-warning-baseline-output-dir>
 ```
 
@@ -221,7 +223,7 @@ This removes the `TEMPORAL_EPSS_SIGNAL` block from the model-facing text column 
 Create the NVD CVSS/CWE/CPE text ablation:
 
 ```bash
-python Data/ablate_nvd_text.py \
+python Data/ablations/ablate_nvd_text.py \
   --input <path-to-final-processed-snapshots.csv> \
   --output <path-to-no-nvd-cvss-cwe-cpe-snapshots.csv> \
   --drop-cvss \
@@ -284,12 +286,21 @@ The resulting combined JSON is passed to the weekly snapshot builder with:
 
 ## CISA KEV
 
-Build the KEV event file:
+The artifact includes a static CISA Known Exploited Vulnerabilities CSV:
+
+```text
+Data/known_exploited_vulnerabilities.csv
+```
+
+This file is the KEV input used to build the standardized event file consumed by the snapshot builder and evaluation scripts. Build the KEV event file with:
 
 ```bash
 python Data/build_events_kev.py \
+  --input Data/known_exploited_vulnerabilities.csv \
   --output <path-to-events-kev.csv>
 ```
+
+Use the included KEV CSV for exact reproduction. Re-downloading the CISA KEV catalog later may produce small differences if the public catalog has changed.
 
 ---
 
@@ -353,6 +364,7 @@ Pass:
 
 ```bash
 python Data/build_events_kev.py \
+  --input Data/known_exploited_vulnerabilities.csv \
   --output <path-to-events-kev.csv>
 
 python Data/build_full_nvd_corpus.py \
@@ -372,7 +384,7 @@ python Data/enrich_snapshots_with_epss.py \
   --output <path-to-snapshots-with-epss.csv> \
   --cache_dir <path-to-epss-cache-dir>
 
-python Data/enrich_snapshots_with_temporal_advisories.py \
+python Data/enrich_snapshots_with_ghsa_osv.py \
   --snapshots <path-to-snapshots-with-epss.csv> \
   --output <path-to-snapshots-with-advisories.csv> \
   --advisory_dirs <path-to-github-advisory-database>/advisories
