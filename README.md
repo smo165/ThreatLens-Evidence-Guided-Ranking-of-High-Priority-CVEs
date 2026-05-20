@@ -64,7 +64,6 @@ https://drive.google.com/drive/folders/1kWb5CBka-K_DhSZxu_6bnyES5WrJe5NH?usp=sha
 
 After downloading, place it at: 
 
-```text
 data/processed/snapshots_final.csv
 
 The main processed snapshot CSV should contain cutoff-aligned CVE-time snapshots. At minimum, the evaluation scripts expect columns such as:
