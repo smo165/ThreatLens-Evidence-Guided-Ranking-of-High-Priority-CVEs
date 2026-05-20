@@ -56,7 +56,16 @@ The `data/processed/` directory contains the processed snapshot data used for th
 
 ## Reproducing results from processed data
 
-Use the processed snapshot CSV and KEV event CSV included in `data/processed/`.
+Use the KEV event CSV included in `data/processed/`. The main processed
+snapshot CSV is too large to store directly in this GitHub repository and is
+hosted externally. Download it from:
+
+<GOOGLE-DRIVE-LINK>
+
+After downloading, place it at:
+
+```text
+data/processed/snapshots_final.csv
 
 The main processed snapshot CSV should contain cutoff-aligned CVE-time snapshots. At minimum, the evaluation scripts expect columns such as:
 
