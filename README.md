@@ -62,7 +62,7 @@ hosted externally. Download it from:
 
 <GOOGLE-DRIVE-LINK>
 
-After downloading, place it at:
+After downloading, place it at: https://drive.google.com/drive/folders/1kWb5CBka-K_DhSZxu_6bnyES5WrJe5NH?usp=sharing
 
 ```text
 data/processed/snapshots_final.csv
