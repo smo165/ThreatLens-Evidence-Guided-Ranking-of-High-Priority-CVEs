@@ -60,9 +60,9 @@ Use the KEV event CSV included in `data/processed/`. The main processed
 snapshot CSV is too large to store directly in this GitHub repository and is
 hosted externally. Download it from:
 
-<GOOGLE-DRIVE-LINK>
+https://drive.google.com/drive/folders/1kWb5CBka-K_DhSZxu_6bnyES5WrJe5NH?usp=sharing
 
-After downloading, place it at: https://drive.google.com/drive/folders/1kWb5CBka-K_DhSZxu_6bnyES5WrJe5NH?usp=sharing
+After downloading, place it at: 
 
 ```text
 data/processed/snapshots_final.csv
