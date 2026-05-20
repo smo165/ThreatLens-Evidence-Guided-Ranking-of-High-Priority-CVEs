@@ -1,5 +1,3 @@
-# ThreatLens-Evidence-Guided-Prioritization-and-Early-Warning-for-Exploitation-Relevant-CVEs
-This is the artifact repo for the applied research paper of the same name
 # ThreatLens Reproducibility Artifact
 
 This repository contains the code and processed data needed to reproduce the results in:
