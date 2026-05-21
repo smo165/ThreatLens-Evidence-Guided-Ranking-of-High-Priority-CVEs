@@ -2,7 +2,7 @@
 
 This repository contains the code and processed data needed to reproduce the results in:
 
-**ThreatLens: Evidence-Guided Prioritization and Early Warning for Exploitation-Relevant CVEs**
+**ThreatLens: Evidence-Guided Ranking of High-Priority CVEs**
 
 The processed snapshot data included in this artifact are the canonical inputs for reproducing the paper results. The raw-data reconstruction scripts are also included for transparency, but public data sources may change over time, so rebuilding from raw sources may not exactly match the released processed data.
 
