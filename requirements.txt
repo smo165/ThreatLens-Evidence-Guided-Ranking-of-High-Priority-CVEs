@@ -1,0 +1,10 @@
+psycopg2-binary
+APScheduler
+requests
+beautifulsoup4
+ollama
+sentence-transformers
+torch
+numpy
+pandas
+scikit-learn
